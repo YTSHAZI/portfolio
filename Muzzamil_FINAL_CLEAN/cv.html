@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Md. Muzzamil Sheikh | Cybersecurity Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060a0f;
+    --bg2: #0b1118;
+    --surface: #0f1822;
+    --border: #1a2535;
+    --cyan: #00e5ff;
+    --green: #00ff88;
+    --orange: #ff6b35;
+    --text: #c8d8e8;
+    --muted: #5a7a9a;
+    --white: #eef4fa;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* PRINT BUTTON */
+  .print-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .print-bar-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+  }
+  .print-bar-label span { color: var(--cyan); }
+  .print-btn {
+    padding: 0.6rem 1.6rem;
+    background: var(--cyan);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .print-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  /* CV WRAPPER */
+  .cv-wrapper {
+    max-width: 860px;
+    margin: 2rem auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  /* HEADER */
+  .cv-header {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 2.5rem;
+    margin-bottom: 1.5rem;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+    position: relative;
+  }
+  .cv-header::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--cyan), var(--green), var(--orange));
+  }
+  .cv-name {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .cv-name span { color: var(--cyan); }
+  .cv-title-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--green);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .cv-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    margin-top: 1rem;
+  }
+  .cv-contact-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+  .cv-contact-item:hover { color: var(--cyan); }
+  .cv-contact-item .ic { color: var(--cyan); }
+
+  /* SECTION */
+  .cv-section {
+    margin-bottom: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .cv-section-head {
+    background: rgba(0,229,255,0.05);
+    border-bottom: 1px solid var(--border);
+    padding: 0.7rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .cv-section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--cyan);
+    letter-spacing: 0.2em;
+  }
+  .cv-section-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .cv-section-body { padding: 1.5rem; }
+
+  /* EXPERIENCE ITEM */
+  .exp-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .exp-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.8rem; }
+  .exp-role {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .exp-org {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--orange);
+    margin-top: 0.15rem;
+    letter-spacing: 0.05em;
+  }
+  .exp-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--cyan);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    background: rgba(0,229,255,0.07);
+    padding: 0.25rem 0.7rem;
+    border: 1px solid rgba(0,229,255,0.2);
+  }
+  .exp-bullets { list-style: none; margin-top: 0.5rem; }
+  .exp-bullets li {
+    font-size: 0.87rem;
+    color: var(--muted);
+    line-height: 1.7;
+    padding-left: 1.4rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+  }
+  .exp-bullets li::before {
+    content: '▹';
+    position: absolute; left: 0;
+    color: var(--cyan);
+  }
+
+  /* EDUCATION */
+  .edu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .edu-degree { font-size: 1rem; font-weight: 700; color: var(--white); }
+  .edu-school {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--green);
+    margin-top: 0.2rem;
+  }
+  .edu-score {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+  .edu-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--cyan);
+    letter-spacing: 0.08em;
+    background: rgba(0,229,255,0.07);
+    padding: 0.25rem 0.7rem;
+    border: 1px solid rgba(0,229,255,0.2);
+    white-space: nowrap;
+  }
+
+  /* SKILLS GRID */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .skill-group-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--green);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .skill-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-chip {
+    padding: 0.2rem 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.67rem;
+    color: var(--text);
+    background: rgba(0,229,255,0.05);
+    border: 1px solid var(--border);
+  }
+
+  /* PROJECTS */
+  .proj-item { margin-bottom: 1.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border); }
+  .proj-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .proj-name { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.15rem; }
+  .proj-year { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--green); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+  .proj-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+  /* CERTS GRID */
+  .cert-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+  .cert-row {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+  .cert-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); flex-shrink: 0; margin-top: 0.35rem; }
+  .cert-text {}
+  .cert-name { font-size: 0.8rem; color: var(--text); line-height: 1.4; }
+  .cert-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--muted); margin-top: 0.1rem; }
+
+  /* PRINT STYLES */
+  @media print {
+    .print-bar { display: none; }
+    body { background: #fff; color: #111; }
+    :root {
+      --bg: #fff; --bg2: #f5f5f5; --surface: #f9f9f9;
+      --border: #ddd; --cyan: #0077aa; --green: #007744;
+      --orange: #cc4400; --text: #222; --muted: #555; --white: #000;
+    }
+    .cv-wrapper { max-width: 100%; margin: 0; padding: 0; }
+    .cv-header { clip-path: none; }
+    .cv-section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="print-bar">
+  <span class="print-bar-label">CV / <span>Md. Muzzamil Sheikh</span> · Cybersecurity Professional</span>
+  <button class="print-btn" onclick="window.print()">⬇ Download / Print CV</button>
+</div>
+
+<div class="cv-wrapper">
+
+  <!-- HEADER -->
+  <div class="cv-header">
+    <div class="cv-name">Md. <span>Muzzamil</span> Sheikh</div>
+    <div class="cv-title-line">Cybersecurity Professional · Penetration Tester · alias YTSHAZI</div>
+    <div class="cv-contacts">
+      <a href="mailto:muzzammilsheikh049@gmail.com" class="cv-contact-item">
+        <span class="ic">✉</span> muzzammilsheikh049@gmail.com
+      </a>
+      <a href="tel:+917999662522" class="cv-contact-item">
+        <span class="ic">☎</span> +91 7999662522
+      </a>
+      <span class="cv-contact-item">
+        <span class="ic">📍</span> India 🇮🇳
+      </span>
+      <a href="https://www.linkedin.com/in/md-muzzamil/" target="_blank" class="cv-contact-item">
+        <span class="ic">💼</span> linkedin.com/in/md-muzzamil
+      </a>
+      <a href="https://github.com/YTSHAZI" target="_blank" class="cv-contact-item">
+        <span class="ic">⌥</span> github.com/YTSHAZI
+      </a>
+      <a href="https://tryhackme.com/p/Shazi.Sheikh" target="_blank" class="cv-contact-item">
+        <span class="ic">🎯</span> tryhackme.com/p/Shazi.Sheikh
+      </a>
+    </div>
+  </div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="cv-section">
+    <div class="cv-section-head">
+      <span class="cv-section-num">// 01</span>
+      <span class="cv-section-title">Work Experience</span>
+    </div>
+    <div class="cv-section-body">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Penetration Tester (Freelance)</div>
+            <div class="exp-org">IPS</div>
+          </div>
+          <div class="exp-period">Nov 2025 — Mar 2026</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Conducted full-scope engagements: reconnaissance, scanning, exploitation, and post-exploitation phases.</li>
+          <li>Developed small software tools to automate and support operational security tasks.</li>
+          <li>Performed vulnerability assessments and penetration testing on internal systems.</li>
+          <li>Deployed and configured SIEM & SOC tools (Splunk, Wireshark, Snort, Wazuh, Suricata) for log monitoring, threat detection, and incident analysis (IDS/IPS).</li>
+          <li>Documented findings with detailed reports, risk ratings, and remediation recommendations.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Consulting Biometric Executive</div>
+            <div class="exp-org">Vistara</div>
+          </div>
+          <div class="exp-period">Jun 2024 — Jan 2025</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Managed biometric authentication systems and device operations at scale.</li>
+          <li>Provided troubleshooting and technical support for biometric device infrastructure.</li>
+          <li>Ensured uptime and reliability of identity verification systems in enterprise environments.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Cybersecurity & Ethical Hacking Intern</div>
+            <div class="exp-org">TechnoHacks EduTech</div>
+          </div>
+          <div class="exp-period">Jan 2024 — Feb 2024</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Completed a hands-on internship covering cybersecurity and ethical hacking methodologies.</li>
+          <li>Recognized as Consistent and Hardworking throughout the program.</li>
+          <li>Practiced real-world attack simulation, security auditing, and basic red-team concepts.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Cybersecurity Intern</div>
+            <div class="exp-org">Y-Hills EdTech</div>
+          </div>
+          <div class="exp-period">Oct 2023 — Nov 2023</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Performed real-world security labs including Web Application Penetration Testing (WAPT) and system exploitation.</li>
+          <li>Set up and managed VMs and Docker containers for secure testing environments and lab simulations.</li>
+          <li>Gained familiarity with Bug Bounty methodologies (HackerOne / Bugcrowd).</li>
+          <li>Basic scripting with Python / Bash for security automation tasks.</li>
+          <li>Report writing and vulnerability documentation for all assessed targets.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="cv-section">
+    <div class="cv-section-head">
+      <span class="cv-section-num">// 02</span>
+      <span class="cv-section-title">Education</span>
+    </div>
+    <div class="cv-section-body">
+      <div class="edu-item">
+        <div>
+          <div class="edu-degree">Bachelor of Commerce in Computer Applications (BCCA)</div>
+          <div class="edu-school">GHRIETN (Gyanchand Hiralal Raisoni Institute of Engineering Technology & Nursing)</div>
+          <div class="edu-score">GPA: 8.3 / 10</div>
+        </div>
+        <div class="edu-period">2021 — 2023</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECHNICAL SKILLS -->
+  <div class="cv-section">
+    <div class="cv-section-head">
+      <span class="cv-section-num">// 03</span>
+      <span class="cv-section-title">Technical Skills</span>
+    </div>
+    <div class="cv-section-body">
+      <div class="skills-grid">
+        <div>
+          <div class="skill-group-title">$ tools --security</div>
+          <div class="skill-chips">
+            <span class="skill-chip">Kali Linux</span>
+            <span class="skill-chip">Metasploit</span>
+            <span class="skill-chip">Nmap</span>
+            <span class="skill-chip">Burp Suite</span>
+            <span class="skill-chip">Wazuh</span>
+            <span class="skill-chip">Wireshark</span>
+            <span class="skill-chip">Splunk</span>
+            <span class="skill-chip">Snort</span>
+            <span class="skill-chip">Suricata</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-title">$ skills --pentest</div>
+          <div class="skill-chips">
+            <span class="skill-chip">WAPT</span>
+            <span class="skill-chip">Network Pentesting</span>
+            <span class="skill-chip">Vuln Assessment</span>
+            <span class="skill-chip">OWASP Top 10</span>
+            <span class="skill-chip">CVE Analysis</span>
+            <span class="skill-chip">SQL Injection</span>
+            <span class="skill-chip">XSS</span>
+            <span class="skill-chip">Privilege Escalation</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-title">$ skills --infrastructure</div>
+          <div class="skill-chips">
+            <span class="skill-chip">VMware</span>
+            <span class="skill-chip">VirtualBox</span>
+            <span class="skill-chip">Docker</span>
+            <span class="skill-chip">Ubuntu/Linux</span>
+            <span class="skill-chip">Windows</span>
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">Bash</span>
+            <span class="skill-chip">SQL</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-title">$ skills --soc-operations</div>
+          <div class="skill-chips">
+            <span class="skill-chip">SIEM</span>
+            <span class="skill-chip">IDS/IPS</span>
+            <span class="skill-chip">Threat Detection</span>
+            <span class="skill-chip">Log Monitoring</span>
+            <span class="skill-chip">Incident Analysis</span>
+            <span class="skill-chip">IAM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="cv-section">
+    <div class="cv-section-head">
+      <span class="cv-section-num">// 04</span>
+      <span class="cv-section-title">Projects</span>
+    </div>
+    <div class="cv-section-body">
+      <div class="proj-item">
+        <div class="proj-name">Smart Traffic Management System</div>
+        <div class="proj-year">2025 — 2026 · CG Police</div>
+        <div class="proj-desc">Developed an intelligent traffic management solution for Chhattisgarh Police, integrating smart detection and real-time monitoring capabilities for law enforcement infrastructure.</div>
+      </div>
+      <div class="proj-item">
+        <div class="proj-name">Automated Network Scanning Script</div>
+        <div class="proj-year">June 2024</div>
+        <div class="proj-desc">Built an automation tool for network reconnaissance — streamlining host discovery, port scanning, and service fingerprinting into a unified single-command workflow.</div>
+      </div>
+      <div class="proj-item">
+        <div class="proj-name">Windows Penetration Testing — Capstone Project</div>
+        <div class="proj-year">December 2023 · YHills EduTech</div>
+        <div class="proj-desc">End-to-end penetration testing on a Windows environment covering enumeration, exploitation, lateral movement, and comprehensive post-exploitation reporting.</div>
+      </div>
+      <div class="proj-item">
+        <div class="proj-name">Packers & Movers Website</div>
+        <div class="proj-year">2022 — 2023 · College Project, GHRIETN</div>
+        <div class="proj-desc">Designed and developed a full-featured business website for a logistics company as the final-year project for the BCCA programme.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="cv-section">
+    <div class="cv-section-head">
+      <span class="cv-section-num">// 05</span>
+      <span class="cv-section-title">Certifications</span>
+    </div>
+    <div class="cv-section-body">
+      <div class="cert-list">
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div class="cert-text">
+            <div class="cert-name">CompTIA Security+ (SY0-701) Training</div>
+            <div class="cert-meta">Udemy · Mar 2024 · 17 hrs</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div class="cert-text">
+            <div class="cert-name">Tools of the Trade: Linux and SQL</div>
+            <div class="cert-meta">Google / Coursera · Feb 2024</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div class="cert-text">
+            <div class="cert-name">Foundations of Cybersecurity</div>
+            <div class="cert-meta">Google / Coursera · Jan 2024</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div class="cert-text">
+            <div class="cert-name">The Cybersecurity Threat Landscape</div>
+            <div class="cert-meta">LinkedIn Learning · Jan 2024</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div class="cert-text">
+            <div class="cert-name">Play It Safe: Manage Security Risks</div>
+            <div class="cert-meta">Google / Coursera · Jan 2024</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div class="cert-text">
+            <div class="cert-name">Intro to Cyber Security Learning Path</div>
+            <div class="cert-meta">TryHackMe · Dec 2023 · THM-MMT8JHDNZ0</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div class="cert-text">
+            <div class="cert-name">Pre Security Learning Path</div>
+            <div class="cert-meta">TryHackMe · Dec 2023 · THM-ANFLJH37F0</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div class="cert-text">
+            <div class="cert-name">Cybersecurity & Ethical Hacking Internship</div>
+            <div class="cert-meta">TechnoHacks EduTech · Jan–Feb 2024</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div class="cert-text">
+            <div class="cert-name">Cyber Security Course</div>
+            <div class="cert-meta">YHills · Dec 2023 · ID: YHIcc-5006244</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cv-wrapper -->
+
+</body>
+</html>
